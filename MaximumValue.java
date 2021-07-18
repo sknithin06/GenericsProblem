@@ -1,6 +1,8 @@
 package bridgelabz;
 import java.util.Scanner;
-public class MaximumValue {
+public class MaximumValue <T extends Comparable<T>> {
+	T p,  q, r, inputArray;
+	
 	static void numMaximumInt() {
 		Scanner sc = new Scanner(System.in);
 		System.out.print("Enter your First Number:");  
@@ -76,11 +78,58 @@ public class MaximumValue {
 			System.out.println("Maximum value is a:"+max);
 		}
 	}
+	 public static  <T extends Comparable<T>> T maximum(T p, T q, T r) {
+		if (q.compareTo(p) > 0) {
+			if (q.compareTo(r) > 0) {
+				T max = q;
+				System.out.println("Maximum value :"+max);	
+			}
+			return q;
+		}
+		else if (r.compareTo(p) > 0) {
+			if (r.compareTo(q) > 0) {
+				T max = r;
+				System.out.println("Maximum value :"+max);
+			}
+			return r;
+		}
+		else {
+			T max = p;
+			System.out.println("Maximum value :"+max);
+			}
+			return p;
+		}
 	public static void main(String[] args) {
 		System.out.println("Welcome to Generic Problem");
 		
 		numMaximumInt();
 		numMaximumFloat();
 		numMaximumString();
+		
+		Scanner sc = new Scanner(System.in);
+		System.out.print("Enter your First Number:");  
+		Float pFl = sc.nextFloat();
+		System.out.print("Enter your Second Number:");
+		Float qFl = sc.nextFloat();
+		System.out.print("Enter your Third Number:");
+		Float rFl = sc.nextFloat();
+		
+		System.out.print("Enter your First Number:");  
+		Integer pInt = sc.nextInt();
+		System.out.print("Enter your Second Number:");
+		Integer qInt = sc.nextInt();
+		System.out.print("Enter your Third Number:");
+		Integer rInt = sc.nextInt();
+		
+		System.out.print("Enter your First Number:");  
+		String pStr = sc.nextLine();
+		System.out.print("Enter your Second Number:");
+		String qStr = sc.nextLine();
+		System.out.print("Enter your Third Number:");
+		String rStr = sc.nextLine();
+		
+		maximum(pInt, qInt, rInt);
+		maximum(pFl, qFl, rFl);
+		maximum(pStr, qStr, rStr);
 	}
 }
